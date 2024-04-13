@@ -20,18 +20,18 @@ class ConnectToServerTask : AsyncTask<String, Boolean, Boolean>() {
              userDto = UserDto(false, login, password)
         }
         val serverIp = "192.168.163.250"
-        val serverPort1 = 8001
-        val serverPort2 = 8002
+        val serverPortOutput = 8001
+        val serverPortInput = 8002
         var boolean: Boolean? = null;
         try {
-            SocketManager.socket1 = Socket(serverIp, serverPort1)
-            SocketManager.socket2 = Socket(serverIp, serverPort2)
+            SocketManager.socketOutput = Socket(serverIp, serverPortOutput)
+            SocketManager.socketInput = Socket(serverIp, serverPortInput)
 
-            val outputStream: OutputStream = SocketManager.socket1!!.getOutputStream()
+            val outputStream: OutputStream = SocketManager.socketOutput!!.getOutputStream()
             val objectOutputStream = ObjectOutputStream(outputStream)
             Log.d("MainActivity", userDto.toString())
             objectOutputStream.writeObject(userDto)
-            val inputStream = SocketManager.socket2!!.getInputStream()
+            val inputStream = SocketManager.socketInput!!.getInputStream()
             val objectInputStream = ObjectInputStream(inputStream)
             boolean = objectInputStream.readObject() as Boolean?;
             Thread.sleep(1000)
