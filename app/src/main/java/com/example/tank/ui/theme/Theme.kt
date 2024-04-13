@@ -1,4 +1,4 @@
-package com.example.tanksforandroid.ui.theme
+package com.example.tank.ui.theme
 
 import android.app.Activity
 import android.os.Build

@@ -1,4 +1,4 @@
-package com.example.tanksforandroid
+package com.example.tank
 
 import org.junit.Test
 
